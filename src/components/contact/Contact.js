@@ -1,6 +1,6 @@
-import React,{useState} from 'react'
-import Title from '../layouts/Title';
-import ContactLeft from './ContactLeft';
+import React, { useState } from "react";
+import Title from "../layouts/Title";
+import ContactLeft from "./ContactLeft";
 
 const Contact = () => {
   const [username, setUsername] = useState("");
@@ -21,6 +21,7 @@ const Contact = () => {
 
   const handleSend = (e) => {
     e.preventDefault();
+
     if (username === "") {
       setErrMsg("Username is required!");
     } else if (phoneNumber === "") {
@@ -30,12 +31,23 @@ const Contact = () => {
     } else if (!emailValidation(email)) {
       setErrMsg("Give a valid Email!");
     } else if (subject === "") {
-      setErrMsg("Plese give your Subject!");
+      setErrMsg("Please give your Subject!");
     } else if (message === "") {
       setErrMsg("Message is required!");
     } else {
+      const whatsappMessage = `
+      Name: ${username} 
+      Phone Number: ${phoneNumber}
+      Email: ${email} 
+      Subject: ${subject}
+      Message: ${message}`;
+      const whatsappUrl = `https://wa.me/7252048643?text=${encodeURIComponent(
+        whatsappMessage
+      )}`;
+      window.open(whatsappUrl, "_blank");
+
       setSuccessMsg(
-        `Thank you dear ${username}, Your Messages has been sent Successfully!`
+        `Thank you dear ${username}, Your message has been sent successfully!`
       );
       setErrMsg("");
       setUsername("");
@@ -45,6 +57,7 @@ const Contact = () => {
       setMessage("");
     }
   };
+
   return (
     <section
       id="contact"
@@ -77,8 +90,7 @@ const Contact = () => {
                     onChange={(e) => setUsername(e.target.value)}
                     value={username}
                     className={` ${
-                      errMsg === "Username is required!" &&
-                      "outline-yellow-400"
+                      errMsg === "Username is required!" && "outline-yellow-400"
                     } contactInput`}
                     type="text"
                   />
@@ -106,8 +118,7 @@ const Contact = () => {
                   onChange={(e) => setEmail(e.target.value)}
                   value={email}
                   className={`${
-                    errMsg === "Please give your Email!" &&
-                    "outline-yellow-400"
+                    errMsg === "Please give your Email!" && "outline-yellow-400"
                   } contactInput`}
                   type="email"
                 />
@@ -120,7 +131,7 @@ const Contact = () => {
                   onChange={(e) => setSubject(e.target.value)}
                   value={subject}
                   className={`${
-                    errMsg === "Plese give your Subject!" &&
+                    errMsg === "Please give your Subject!" &&
                     "outline-yellow-400"
                   } contactInput`}
                   type="text"
@@ -164,6 +175,6 @@ const Contact = () => {
       </div>
     </section>
   );
-}
+};
 
-export default Contact
+export default Contact;
