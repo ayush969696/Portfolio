@@ -1,6 +1,6 @@
 import React from 'react';
 import Title from '../layouts/Title';
-import { projectOne, projectTwo, projectThree } from "../../assets/index";
+import { projectOne, projectTwo, projectThree, projectFour } from "../../assets/index";
 import ProjectsCard from './ProjectsCard';
 
 const Projects = () => {
@@ -17,24 +17,31 @@ const Projects = () => {
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 xl:gap-14">
         <ProjectsCard
-          title="SOCIAL MEDIA CLONE"
+          title="FormaScholar - E-Learning Platform"
           des="A social media clone project developed with modern web technologies."
           src={projectOne}
-          techStack={['React', 'Node.js', 'Express', 'MongoDB']}
-          date="Jan 2024 - Dec 2023"
+          techStack={['React', "TailwindCSS" ,'Express', 'MongoDB', "Git"]}
+          date="03/2024 - 07/2024"
         />
         <ProjectsCard
-          title="E-commerce Website"
+          title="News Website"
           des="An e-commerce website with full functionality including payments and user management."
           src={projectTwo}
-          techStack={['React', 'Redux', 'Node.js', 'MongoDB']}
+          techStack={['HTML', 'Tailwind', 'Javascript', 'Git']}
           date="Jun 2023 - Jul 2023"
         />
         <ProjectsCard
-          title="Chatting App"
+          title="Book Store Website"
           des="A real-time chat application with user authentication and chat rooms."
           src={projectThree}
-          techStack={['React', 'Socket.io', 'Node.js', 'MongoDB']}
+          techStack={['React', 'TailwindCSS', 'Express', 'MongoDB', "Git"]}
+          date="Apr 2023 - May 2023"
+        />
+        <ProjectsCard
+          title="User Admin App"
+          des="A real-time chat application with user authentication and chat rooms."
+          src={projectFour}
+          techStack={['Android Studio', 'XML', 'Java', 'Firebase']}
           date="Apr 2023 - May 2023"
         />
       </div>
